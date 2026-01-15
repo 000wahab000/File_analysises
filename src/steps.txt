@@ -1,0 +1,39 @@
+step 1
+this is a new project and separate 
+from before so be clean its a tool
+and its a need for me currenly
+step 2
+it firstly starts at a folder u say lets say
+idk xyz 
+and then it deeps down into
+checking how many folders
+in it and files
+and then also showing
+how much files is mb or kb or gb worth
+and sees what folder is there and what NOT
+
+step 3
+i wanna see how much storage is there
+and what files and folders it is acompying the 
+number only
+
+step 4
+ok so basically v1.0 will basically
+take a folder 
+open it
+see what fies in it
+show how much mb 
+show much files
+and then if any other folders
+it will repeat
+and at end when theres no folder to contiue
+and all files been counted for
+it shows total disk space it takes 
+
+step 5 6 7
+ranks the folder size
+and files size
+plus maube show it alphabetically as well
+
+and thats it basically the 
+STARTING Point before i add shit ton effects and what NOT

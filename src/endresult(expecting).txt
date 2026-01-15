@@ -1,0 +1,8 @@
+basically it will show
+this folder is 4.3 gb
+contains 45 files
+this file is xy
+this file is blah blah
+
+total disk consumption
+is 4.9 gb 
