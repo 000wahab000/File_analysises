@@ -11,13 +11,13 @@ if os.path.isfile(current_directory):
     exit(1)
 
 files = os.listdir(current_directory)
-if files.isfile():
-    print("Total files found:", len(files))
-for file_name in files:
-    print("File:", file_name)
-    print("File Size: ", os.path.getsize(os.path.join(current_directory, file_name)), "bytes")
-else:
-    print("No files found in the directory.")
+files_list = [f for f in files if os.path.isfile(os.path.join(current_directory, f))]
+print("Total files found:", len(files_list))
+for file_name in files_list:
+        if os.path.isfile(os.path.join(current_directory, file_name)):
+            print("|File|: " + file_name + "     |File Size|: " + str(os.path.getsize(os.path.join(current_directory, file_name)) / 1024) + "KB")
+        else:
+           print("No files found in the directory.")
 print("----------------FOLDERS----------------------=")
 folders = [f for f in files if os.path.isdir(os.path.join(current_directory, f))]
 print("Total folders found:", len(folders))
@@ -31,11 +31,14 @@ for folder_name in folders:
     folder_contents = os.listdir(folder_path)
     print("Contents of folder", folder_name, ":", folder_contents)
 print("Total files in the folder:", len(folders_files))
-print("----------------------------------------------")
-print("do u wish to see the contents of a specific folder? (yes/no)")
-user_response = input()
-if user_response.lower() == "yes":
-    print("Please enter the folder number")
+if indexNumber == 1:
+    print("No folders found in the directory.")
+    print("----------------------------------------------")
+else:
+    print("do u wish to see the contents of a specific folder? (yes/no)")
+    user_response = input()
+    if user_response.lower() == "yes":
+        print("Please enter the folder number")
     specific_folder = input()
     for f in folders:
         if specific_folder.isdigit() and int(specific_folder) == folders.index(f) + 1:
@@ -53,12 +56,12 @@ if user_response.lower() == "yes":
             total_size = sum(os.path.getsize(os.path.join(folder_path, item)) for item in folder_contents if os.path.isfile(os.path.join(folder_path, item)))
             print(total_size, "bytes")
         
-else:
-    print("Exiting without showing specific folder contents.")
+    else:
+        print("Exiting without showing specific folder contents.")
 
-print("Summary of the directory------------------------------")
+print("Summary of the directory-------------------------------------------   -------------------")
 print("Total files:", len(files))
 print("Total folders:", len(folders))
 print("biggest file size in the directory:" + str(max(os.path.getsize(os.path.join(current_directory, f)) for f in files)))
 print("smallest file size in the directory:" + str(min(os.path.getsize(os.path.join(current_directory, f)) for f in files)))
-print("-------------------------------------------------------")
+print("---------------------------------------------------------------------------------------------")
