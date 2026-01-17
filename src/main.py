@@ -65,17 +65,25 @@ else:
             print("files and their sizes: ")
             for item in folder_contents:
                 item_path = os.path.join(folder_path, item)
-                if os.path.isfile(item_path):
-                    file_size = os.path.getsize(item_path)
-                    print("File:", item, "Size:", file_size, "bytes")
-            print("total file size in the folder:")
-            total_size = sum(os.path.getsize(os.path.join(folder_path, item)) 
-            for item in folder_contents if os.path.isfile(os.path.join(folder_path, item)))
-            print(total_size, "bytes")
+    for item_path in folder_contents:
+        KB = round (os.path.getsize(os.path.join(current_directory, file_name)) / 1024 )
+        MB = round(KB / 1024)
+        GB = round(MB / 1024)
         
-        elif user_response.lower() == "no":
-            print("Exiting without showing specific folder contents.")
+        if KB < 1024:
+            print("|File|: " + f"{file_name:<{lenghtoffilename + 1}}" +  "|File Size|: " + str(KB) + " KB") 
+        
+        elif MB >= 1:
+            print("|File|: " + f"{file_name:<{lenghtoffilename + 1}}" + "|File Size|: " + str(MB) + " MB") 
+            
+        elif GB >= 1:
+            print("|File|: " + f"{file_name:<{lenghtoffilename + 1}}" + "|File Size|: " + str(GB) + " GB")
 
+        else:
+           print("No files found in the directory.")
+
+    
+       
 print("Summary of the directory----------------------------------------------------------------")
 print("Total files:", len(files))
 print("Total folders:", len(folders))
